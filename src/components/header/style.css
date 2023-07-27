@@ -50,6 +50,7 @@ header img {
 }
 
 nav {
+    width: auto;
     background-color: black;
     color: rgb(203, 203, 203);
     text-align: center;

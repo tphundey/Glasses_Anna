@@ -1,0 +1,33 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+.img_logo{
+    width: 150px;
+    margin: 0px -10px;
+}
+.img_logo img{
+    width: 100%;
+}
+.col ul li{
+    list-style: none;
+    line-height: 35px;
+    opacity: 0.8;
+}
+.col ul{
+    padding: 0;
+}
+.text-footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer-light{
+    font-weight: bold;
+    font-size: 20px;
+    padding: 0px 0px 5px 0px;
+    opacity: 0.8 !important;
+}
