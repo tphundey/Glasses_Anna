@@ -59,7 +59,7 @@ const Header = () => {
                             <div className="tongtien">
                                 <b>Tạm tính:</b> 720.000đ
                             </div>
-                            <button className="thanhtoan"><a href="">Thanh toán</a></button>
+                            <button className="thanhtoan"><a href="/thanhtoan">Thanh toán</a></button>
 
                             <button className="thoat" onClick={toggleDiv}>X</button>
                         </div>

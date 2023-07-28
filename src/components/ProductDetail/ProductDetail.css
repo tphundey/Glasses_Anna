@@ -9,6 +9,8 @@
 }
 .product_detail-top{
     padding: 20px 15px;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .product_detail-info{
     display: flex;
@@ -59,7 +61,11 @@
     height: 100%;
 }
 .detail_info-right .input_quantily{
-    width: 50px;
+    color: black;
+    position: relative;
+    left: 20px;
+    width: 40px;
+    padding:0px 5px;
     background-color: rgb(209, 209, 209);
     height: 30px;
     outline: none;
