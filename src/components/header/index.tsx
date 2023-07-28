@@ -12,8 +12,8 @@ const Header = () => {
                         </div>
                         <div className="tab">
                             <ul>
-                                <li><a href="">Trang Chủ</a></li>
-                                <li className="select"><a href="">Sản Phẩm *</a></li>
+                                <li><a href="/">Trang Chủ</a></li>
+                                <li className="select"><a href="/products">Sản Phẩm *</a></li>
                                 {/* <div className="hidden">
                                     <ul>
                                         <li className="select"><a href="">Sản Phẩm</a></li>
