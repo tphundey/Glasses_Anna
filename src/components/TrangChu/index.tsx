@@ -1,6 +1,6 @@
 import "./style.css"
 
-const Header = () => {
+const Trangchu = () => {
 
     return (
         <div>
@@ -81,4 +81,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Trangchu;

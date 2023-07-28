@@ -70,3 +70,14 @@ nav {
 .c {
     width: 28px;
 }
+
+.count {
+    background-color: darkturquoise;
+    position: relative;
+    left: -30px;
+    top: -10px;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 100px;
+    font-size: 13px;
+}

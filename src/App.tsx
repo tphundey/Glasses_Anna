@@ -2,7 +2,8 @@
 // import ProductList from "./components/ProductList";
 import "react-loading-skeleton/dist/skeleton.css";
 import Header from "./components/header";
-import TrangChu from "./components/TrangChu"
+import TrangChu from "./components/TrangChu";
+import Sanpham from "./components/Sanpham";
 import "./App.css"
 import Footer from "./components/footer";
 function App() {
@@ -10,7 +11,8 @@ function App() {
 
         <div>
             <Header></Header>
-            <TrangChu></TrangChu>
+            {/* <TrangChu></TrangChu> */}
+            <Sanpham></Sanpham>
             <Footer></Footer>
             {/* <ProductList /> */}
 
