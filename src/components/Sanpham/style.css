@@ -28,6 +28,10 @@
 .product {
     text-align: center;
 }
+.product a{
+    text-decoration: none;
+    color: black;
+}
 
 .name {
     font-weight: bold;

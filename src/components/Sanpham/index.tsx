@@ -55,11 +55,13 @@ const Sanpham = () => {
                     </div>
                     <div className="list">
                         <div className="product">
+                            <a href="/products/:id">
                             <div className="image">
                                 <img src="https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg" alt="" />
                             </div>
                             <div className="name">GK - 380CK116</div>
                             <div className="price">342,000đ</div>
+                            </a>
                         </div>
 
                         <div className="product">
