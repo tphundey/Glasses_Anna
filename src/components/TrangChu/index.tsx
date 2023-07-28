@@ -12,7 +12,7 @@ const Home = () => {
                     <div className="tl1">HOT TREND</div>
                     <div className="tl2">HÀNG MỚI LÊN KỆ</div>
                 </div>
-                <div className="list">
+                <div className="list-tc">
                     <div className="product">
                         <div className="image">
                             <img src="https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg" alt="" />
