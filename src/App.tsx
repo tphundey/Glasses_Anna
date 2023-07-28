@@ -5,6 +5,8 @@ import BaseLayout from "./components/BaseLayout/BaseLayout";
 import Home from "./components/TrangChu";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import Sanpham from "./components/Sanpham";
+import Signup from "./components/Signup/Signup";
+import Signin from "./components/Signin/Signin";
 function App() {
     return (
         <Router>
@@ -15,6 +17,9 @@ function App() {
                         <Route index element={<Sanpham/>} />
                         <Route path=":id" element={<ProductDetail/>} />
                     </Route>
+                    <Route path="/signin" element={<Signin/>}/>
+                    <Route path="/signup" element={<Signup/>}/>
+
                 </Route>
         </Routes>
         </Router>
