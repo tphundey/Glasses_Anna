@@ -1,13 +1,8 @@
-*{
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-}
-.container_signin{
+.container_signin {
     width: 1300px;
 }
 
-.wrapper_signin{
+.wrapper_signin {
     display: flex;
     padding-top: 30px;
     margin-top: 50px;
@@ -15,38 +10,44 @@
     align-items: center;
 }
 
-.wrapper_signin .signin_left{
+.wrapper_signin .signin_left {
     margin: 0 150px 0px 10px;
     width: 30%;
 }
-.wrapper_signin .signin_right{
+
+.wrapper_signin .signin_right {
     margin: 0;
     padding: 0;
     width: 30%;
 }
-.wrapper_signin .signin_left .img{
+
+.wrapper_signin .signin_left .img {
     width: 500px;
 }
-.wrapper_signin .signin_left .img img{
+
+.wrapper_signin .signin_left .img img {
     width: 100%;
 }
 
-.wrapper_signin .signin_right .title_signin{
+.wrapper_signin .signin_right .title_signin {
     width: 80%;
     text-align: center;
     margin-bottom: 10px;
 }
-.form_login .controll label{
+
+.form_login .controll label {
     font-weight: bold;
 }
-.form_login .controll input{
+
+.form_login .controll input {
     margin: 10px 0px;
     padding: 7px 0px;
     width: 100%;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
-.btn-signin{
+
+.btn-signin {
     font-size: 17px;
     font-weight: bold;
     margin: 10px 0px;
@@ -57,23 +58,26 @@
     color: white;
     background-color: #81c8c2;
 }
-.btn-signin:hover{
+
+.btn-signin:hover {
     background-color: #a00;
 }
-.quen_pass{
+
+.quen_pass {
     text-decoration: none;
 }
 
-.signin_facebook{
+.signin_facebook {
     width: 100%;
     height: 40px;
     background-color: #0274be;
     border: none;
     border-radius: 10px;
-    color:white;
+    color: white;
 
 }
-.signin_google{
+
+.signin_google {
     width: 100%;
     height: 40px;
     background-color: #F2F5F7;
@@ -82,10 +86,12 @@
     border-radius: 10px;
 
 }
-.signin_left-bottom{
+
+.signin_left-bottom {
     text-align: center;
 }
-.signin_left-bottom a{
+
+.signin_left-bottom a {
     margin-top: 20px;
     color: #81c8c2;
 }
