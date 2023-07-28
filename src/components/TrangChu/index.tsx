@@ -1,7 +1,6 @@
 import "./style.css"
 
-const Trangchu = () => {
-
+const Home = () => {
     return (
         <div>
             <div className="banner">
@@ -81,4 +80,4 @@ const Trangchu = () => {
     );
 };
 
-export default Trangchu;
+export default Home;
