@@ -1,0 +1,46 @@
+.aside {
+    background-color: #31323f;
+    width: 20%;
+    height: 100vh;
+    padding: 10px;
+    color: #A6A7AB;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+}
+
+.qlsp-text {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.qlsp-text img {
+    width: 40px;
+}
+
+.qlsp ul {
+    list-style-type: none;
+    display: grid;
+    gap: 45px;
+    margin-left: 15%;
+    margin-top: 50px;
+
+}
+
+.qlsp ul li a {
+    text-decoration: none;
+    color: #d3d3d4;
+    font-size: 17px;
+}
+
+.aside span {
+    position: relative;
+    top: 25px;
+    left: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+}
