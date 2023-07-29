@@ -10,7 +10,7 @@ const Headeradmin = () => {
         <div className="optionadmin">
           <div className="adminimg">
             <div>Admin Dashboard</div>
-            <img className='out' src="https://cdn.icon-icons.com/icons2/1381/PNG/96/systemlogout_94057.png" alt="" />
+           <a href="http://localhost:5173/"> <img className='out' src="https://cdn.icon-icons.com/icons2/1381/PNG/96/systemlogout_94057.png" alt="" /></a>
           </div>
         </div>
       </div>

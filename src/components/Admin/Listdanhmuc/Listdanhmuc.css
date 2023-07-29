@@ -1,0 +1,23 @@
+.listproduct {
+    width: 80%;
+    float: right;
+    padding: 0px;
+    margin: 0px auto;
+}
+
+.listproduct thead {
+    background-color: rgb(241, 241, 241);
+    text-align: left;
+}
+
+.listproduct th {
+    padding: 20px 30px;
+}
+
+.listproduct td {
+    padding: 20px;
+}
+
+.listproduct tbody {
+    padding: 20px;
+}
