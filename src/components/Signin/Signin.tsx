@@ -30,7 +30,10 @@ const Signin = () => {
             </div>
             <button className="btn-signin">Đăng nhập</button>
             <br />
+            <div className="passs">
+              
             <a href="" className="quen_pass">Quên mật khẩu</a>
+            </div>
             <br />
             <button className="signin_facebook">
               <div className="icon"></div>

@@ -87,3 +87,11 @@
     margin-top: 20px;
     color: #81c8c2;
 }
+.form_login .controll input {
+    margin: 10px 0px;
+    padding: 12px 20px !important;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 17px;
+}
