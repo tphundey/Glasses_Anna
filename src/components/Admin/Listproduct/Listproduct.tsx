@@ -1,34 +1,23 @@
-import './Listproduct.css'
+import './Listproduct.css';
+import React, { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from "@/store/hook";
+import { getProduct, removeProduct, updateProduct } from '@/actions/product';
+import Skeleton from "react-loading-skeleton";
+import { Link } from 'react-router-dom';
 
 const Listproduct = () => {
-    // Dữ liệu mẫu về kính
-    const glassesData = [
-        {
-            id: 1,
-            name: 'Kính mát cổ điển',
-            price: 150,
-            img: 'https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg',
-            material: 'Nhựa',
-            color: 'Đen',
-            quantity: 10,
-            info: 'Đây là mô tả về kính mát cổ điển.',
-        },
-        {
-            id: 2,
-            name: 'Kính cận thời trang',
-            price: 180,
-            img: 'https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg',
-            material: 'Kim loại',
-            color: 'Vàng',
-            quantity: 8,
-            info: 'Đây là mô tả về kính cận thời trang.',
-        },
-        // Thêm các dữ liệu khác nếu cần
-    ];
+    const dispatch = useAppDispatch();
+    const { products, isLoading, error } = useAppSelector((state: any) => state.products);
+
+    useEffect(() => {
+        dispatch(getProduct());
+    }, []);
+
 
     return (
         <div className="listproduct">
-            <a href="admin/addsanpham">Thêm sản phẩm mới !</a>
+
+            <a className='themspmoi' href="admin/addsanpham">Thêm sản phẩm mới !</a>
             <table>
                 <thead>
                     <tr>
@@ -39,22 +28,26 @@ const Listproduct = () => {
                         <th>Chất liệu</th>
                         <th>Màu sắc</th>
                         <th>Số lượng</th>
+                        <th>Chức năng</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {glassesData.map((glass) => (
-                        <tr key={glass.id}>
-                            <td>{glass.id}</td>
-                            <td><img src={glass.img} alt="" /></td>
-                            <td>{glass.name}</td>
-                            <td>{glass.price}</td>
-                            <td>{glass.material}</td>
-                            <td>{glass.color}</td>
-                            <td>{glass.quantity}</td>
-
+                    {products.map((item: any) => (
+                        <tr key={item.id}>
+                            <td>SP{item.id}</td>
+                            <td><img src={item.img} alt="" /></td>
+                            <td>{item.name}</td>
+                            <td>{item.price}</td>
+                            <td>{item.materialId}</td>
+                            <td>{item.color}</td>
+                            <td>{item.quantity}</td>
                             <td className='chucnang'>
-                                <a href=""><button className='sua'>Sửa</button></a>
-                                <button className='xoa'>Xóa</button>
+                                <div className="">
+                                    <Link to={`/admin/suasanpham/${item.id}`} className='sua'>Sửa</Link>
+                                </div>
+                                <div>
+                                    <button onClick={() => dispatch(removeProduct(item.id))} className='xoa'>Xóa</button>
+                                </div>
                             </td>
                         </tr>
                     ))}
@@ -64,4 +57,4 @@ const Listproduct = () => {
     );
 };
 
-export default Listproduct
+export default Listproduct;

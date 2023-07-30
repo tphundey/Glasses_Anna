@@ -4,11 +4,11 @@
 }
 
 .formadd select {
-    margin-left: 12.8%;
+    width: 500px;
 }
 
 .formadd label {
-    width: 450px;
+    width: 500px;
     justify-content: space-between;
     display: flex;
 }
@@ -16,8 +16,10 @@
 .formadd input,
 textarea,
 select {
-    padding: 5px;
-    width: 300px;
+    padding: 9px;
+    border-radius: 5px;
+    border: 1px solid gainsboro;
+    width: 350px;
     margin-bottom: 10px;
 }
 
@@ -36,7 +38,6 @@ select {
 .formadd button {
     padding: 10px 50px;
     color: white;
-    margin-left: 23%;
     margin-top: 40px;
     font-weight: 700;
     background-color: cadetblue;
@@ -49,7 +50,6 @@ select {
     padding: 10px 50px;
     transition: 0.5s;
     color: white;
-    margin-left: 23%;
     font-weight: 700;
     margin-top: 40px;
     background-color: coral;

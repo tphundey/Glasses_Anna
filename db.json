@@ -12,19 +12,9 @@
   ],
   "products": [
     {
-      "name": "dư",
-      "price": "2",
-      "img": "dưa",
-      "materialId": "1",
-      "color": "dưa",
-      "quantity": "2",
-      "info": "đưa",
-      "id": 1
-    },
-    {
-      "name": "gvt",
-      "price": "555",
-      "img": "ftdtd",
+      "name": "test update",
+      "price": "5550",
+      "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg",
       "materialId": "1",
       "color": "cyty",
       "quantity": "555",
@@ -34,7 +24,7 @@
     {
       "name": "té",
       "price": "2",
-      "img": "fse",
+      "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg",
       "materialId": "1",
       "color": "fé",
       "quantity": "3",
