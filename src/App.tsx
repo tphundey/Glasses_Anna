@@ -7,6 +7,7 @@ import ProductDetail from "./components/ProductDetail/ProductDetail";
 import Sanpham from "./components/Sanpham";
 import Signup from "./components/Signup/Signup";
 import Signin from "./components/Signin/Signin";
+import Hoadon from "./components/HoaDon/Hoadon";
 function App() {
     return (
         <Router>
@@ -19,6 +20,7 @@ function App() {
                     </Route>
                     <Route path="/signin" element={<Signin/>}/>
                     <Route path="/signup" element={<Signup/>}/>
+                    <Route path="/hoadon" element={<Hoadon/>}/>
 
                 </Route>
         </Routes>
