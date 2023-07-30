@@ -12,24 +12,24 @@
   ],
   "products": [
     {
-      "name": "test update",
-      "price": "5550",
-      "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg",
-      "materialId": "1",
-      "color": "cyty",
-      "quantity": "555",
-      "info": "ffffff",
-      "id": 2
-    },
-    {
-      "name": "té",
+      "name": "téss",
       "price": "2",
       "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg",
       "materialId": "1",
       "color": "fé",
-      "quantity": "3",
+      "quantity": "34",
       "info": "fé",
-      "id": 3
+      "id": 1
+    },
+    {
+      "name": "dấd",
+      "price": "23",
+      "img": "ádasd",
+      "materialId": "2",
+      "color": "áda",
+      "quantity": "1",
+      "info": "sadas",
+      "id": 2
     }
   ]
 }
