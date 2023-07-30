@@ -17,18 +17,27 @@ import Listuser from "./components/Admin/Listuser/Listuser";
 import Listdonhang from "./components/Admin/Listdonhang/Listdonhang";
 import AddProductFormProps from "./components/Admin/Addsanpham/Addsanpham";
 import SuaSanPham from "./components/Admin/Updatesanpham/Updatesanpham";
+import AddCategory from "./components/Admin/Adddanhmuc/Adddanhmuc";
+import UpdateCategory from "./components/Admin/UpdateCategory/UpdateCategory";
 interface Product {
   id: number;
   name: string;
   price: number;
 }
+interface Category {
+  id: number;
+  name: string;
+}
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategory] = useState<Category[]>([]);
   const handleAddProduct = (newProduct: Product) => {
     setProducts([...products, newProduct]);
   };
-
+  const handleAddCate = (newCate: Product) => {
+    setCategory([...categories, newCate]);
+  }
   return (
     <Router>
       <Routes>
@@ -49,10 +58,21 @@ function App() {
           <Route index element={<Listproduct />} />
           <Route path="addsanpham" element={<AddProductFormProps onAddProduct={handleAddProduct} />} />
           <Route path="suasanpham/:id" element={<SuaSanPham/>} />
-          <Route path="danhmuc" element={<Listdanhmuc />} />
+          {/* <Route path="category" element={<Listdanhmuc />} />
+          <Route path="addCate" element={<AddCategory onAddCategory={handleAddCate}/>}/>
+          <Route path="updateCate/:id" element={<UpdateCategory/>} /> */}
+
+          <Route path="category">
+            <Route index element={<Listdanhmuc />} />
+            <Route path="addCate" element={<AddCategory onAddCategory={handleAddCate}/>}/>
+            <Route path="updateCate/:id" element={<UpdateCategory/>}/>
+          </Route>
+
           <Route path="user" element={<Listuser />} />
           <Route path="donhang" element={<Listdonhang />} />
         </Route>
+
+        
       </Routes>
     </Router>
   );

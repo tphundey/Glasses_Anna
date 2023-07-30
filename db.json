@@ -1,19 +1,27 @@
 {
   "users": [],
-  "material": [
+  "categories": [
     {
       "id": 1,
-      "name": "Gọng nhựa"
+      "name": "Gọng nhựa update 1"
     },
     {
       "id": 2,
       "name": "Gọng kim loại"
+    },
+    {
+      "id": 3,
+      "name": "Gọng kim cương"
+    },
+    {
+      "name": "danh muc new 1",
+      "id": 4
     }
   ],
   "products": [
     {
       "name": "téss ádasd",
-      "price": "2",
+      "price": "23",
       "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg",
       "materialId": "1",
       "color": "fé",
@@ -30,6 +38,26 @@
       "quantity": "1",
       "info": "sadas",
       "id": 2
+    },
+    {
+      "name": "đâs",
+      "price": "213",
+      "img": "ưeqqwe",
+      "materialId": "2",
+      "color": "ádasd",
+      "quantity": "2",
+      "info": "ưqe",
+      "id": 3
+    },
+    {
+      "name": "aa",
+      "price": "1",
+      "img": "ưqe",
+      "materialId": "5",
+      "color": "eqwe",
+      "quantity": "1",
+      "info": "qeq",
+      "id": 4
     }
   ]
 }
