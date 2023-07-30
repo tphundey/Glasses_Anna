@@ -27,13 +27,14 @@
 
 
 
+import { categoryReducer } from "@/slices/Category";
 import { productReducer } from "@/slices/Product";
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 
 const store = configureStore({
     reducer: {
-       
         products: productReducer,
+        category: categoryReducer
         // cart: cartReducer
     }
 })

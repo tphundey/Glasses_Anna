@@ -47,7 +47,7 @@ const AddProductForm: React.FC<AddProductFormProps> = () => {
   const fetchMaterials = async () => {
     try {
       // Thay đổi URL này thành API endpoint của bạn để lấy dữ liệu chất liệu từ server
-      const response = await fetch('http://localhost:3000/material');
+      const response = await fetch('http://localhost:3000/categories');
       const data = await response.json();
       setMaterials(data);
     } catch (error) {
