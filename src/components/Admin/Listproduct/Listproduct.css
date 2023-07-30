@@ -5,9 +5,19 @@
     margin: 0px auto;
 }
 
+.listproduct table {
+    margin-top: 10px;
+}
+
 .listproduct thead {
     background-color: rgb(241, 241, 241);
     text-align: left;
+}
+
+.listproduct th {
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
 }
 
 .listproduct th {
@@ -20,10 +30,11 @@
 
 .listproduct tbody {
     padding: 20px;
+    text-align: center;
 }
 
 .listproduct img {
-    width: 110px;
+    width: 90px;
     border-radius: 15px;
 }
 
@@ -31,9 +42,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    top: 40px;
-    gap: 10px;
+    padding-top: 45px;
+
 }
 
 .sua {
@@ -42,12 +52,22 @@
     border: none;
     border-radius: 5px;
     color: white;
+    text-decoration: none;
 }
 
 .xoa {
     background-color: rgb(154, 16, 16);
-    padding: 10px 10px;
+    padding: 11px 12px;
     border: none;
     border-radius: 5px;
+    margin-left: 5px;
     color: white;
+}
+
+.themspmoi {
+    text-decoration: none;
+    color: darkslategray;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    padding: 20px;
 }

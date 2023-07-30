@@ -16,7 +16,7 @@ import Listdanhmuc from "./components/Admin/Listdanhmuc/Listdanhmuc";
 import Listuser from "./components/Admin/Listuser/Listuser";
 import Listdonhang from "./components/Admin/Listdonhang/Listdonhang";
 import AddProductFormProps from "./components/Admin/Addsanpham/Addsanpham";
-
+import SuaSanPham from "./components/Admin/Updatesanpham/Updatesanpham";
 interface Product {
   id: number;
   name: string;
@@ -28,6 +28,7 @@ function App() {
   const handleAddProduct = (newProduct: Product) => {
     setProducts([...products, newProduct]);
   };
+
   return (
     <Router>
       <Routes>
@@ -49,6 +50,11 @@ function App() {
         <Route path="/admin/addsanpham" element={<BaseLayoutadmin />}>
           <Route index element={<AddProductFormProps onAddProduct={handleAddProduct} />} />
         </Route>
+        <Route path="/admin/suasanpham/:id" element={<BaseLayoutadmin />}>
+          <Route index element={<SuaSanPham />} />
+        </Route>
+
+
         <Route path="/admin/danhmuc" element={<BaseLayoutadmin />}>
           <Route index element={<Listdanhmuc />} />
         </Route>

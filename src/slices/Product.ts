@@ -1,4 +1,4 @@
-import { addProduct, getProduct, removeProduct, updateProduct } from '@/actions/product';
+import { addProduct, getProduct, removeProduct, updateProduct, getProductById } from '@/actions/product';
 import { instance } from '@/axios/config';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -18,6 +18,23 @@ const productSlice = createSlice({
     reducers: {},
     // rerender
     extraReducers: (builder) => {
+        // Xử lý action getProductById.pending (được tự động thêm vào bởi createAsyncThunk)
+        builder.addCase(getProductById.pending, (state) => {
+            state.isLoading = true;
+
+        });
+
+        // Xử lý action getProductById.fulfilled (được tự động thêm vào bởi createAsyncThunk)
+        builder.addCase(getProductById.fulfilled, (state, action) => {
+            state.isLoading = false;
+
+        });
+
+        // Xử lý action getProductById.rejected (được tự động thêm vào bởi createAsyncThunk)
+        builder.addCase(getProductById.rejected, (state, action) => {
+            state.isLoading = false;
+
+        });
         // fetching
         builder.addCase(getProduct.pending, (state, action) => {
             state.isLoading = true;
