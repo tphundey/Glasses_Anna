@@ -42,27 +42,16 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/hoadon" element={<Hoadon />} />
-
         </Route>
+
+        {/* router admin */}
         <Route path="/admin" element={<BaseLayoutadmin />}>
           <Route index element={<Listproduct />} />
-        </Route>
-        <Route path="/admin/addsanpham" element={<BaseLayoutadmin />}>
-          <Route index element={<AddProductFormProps onAddProduct={handleAddProduct} />} />
-        </Route>
-        <Route path="/admin/suasanpham/:id" element={<BaseLayoutadmin />}>
-          <Route index element={<SuaSanPham />} />
-        </Route>
-
-
-        <Route path="/admin/danhmuc" element={<BaseLayoutadmin />}>
-          <Route index element={<Listdanhmuc />} />
-        </Route>
-        <Route path="/admin/user" element={<BaseLayoutadmin />}>
-          <Route index element={<Listuser />} />
-        </Route>
-        <Route path="/admin/donhang" element={<BaseLayoutadmin />}>
-          <Route index element={<Listdonhang />} />
+          <Route path="addsanpham" element={<AddProductFormProps onAddProduct={handleAddProduct} />} />
+          <Route path="suasanpham/:id" element={<SuaSanPham/>} />
+          <Route path="danhmuc" element={<Listdanhmuc />} />
+          <Route path="user" element={<Listuser />} />
+          <Route path="donhang" element={<Listdonhang />} />
         </Route>
       </Routes>
     </Router>
