@@ -1,10 +1,26 @@
 import "./ProductDetail.css";
+import React, { useState } from 'react';
 
 const ProductDetail = () => {
+
+  const [quantity, setQuantity] = useState(1);
+
+  const handleDecrease = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const handleIncrease = () => {
+    if (quantity < 5) {
+      setQuantity(quantity + 1);
+    }
+
+  }
   return (
     <div className="container">
       <div className="product_detail">
-        <div className="product_detail-top">Trang chủ</div>
+        <div className="product_detail-top">Trang chủ - Sản phẩm</div>
         <div className="product_detail-info">
           <div className="detail_info-left">
             <div className="img-primary">
@@ -25,9 +41,9 @@ const ProductDetail = () => {
                 Miễn phí giao hàng từ 500k ( vận chuyển 3 - 5 ngày )
               </div>
               <div className="input">
-                <button className="btn_quantily down">-</button>
-                  <input type="text" className="input_quantily" value={`1`}/>
-                <button className="btn_quantily up">+</button>
+                <button className="btn_quantily down" onClick={handleDecrease}>-</button>
+                <input defaultValue={1} min={1} max={5} type="number" className="input_quantily" value={quantity} />
+                <button className="btn_quantily up" onClick={handleIncrease}>+</button>
               </div>
               <div className="add_cart">
                 <button>Thêm Vào Giỏ Hàng</button>
