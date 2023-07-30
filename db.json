@@ -1,15 +1,35 @@
 {
   "users": [],
-  "products": [
+  "material": [
     {
       "id": 1,
-      "name": "product A",
-      "price": 100
+      "name": "Gọng nhựa"
     },
     {
       "id": 2,
-      "name": "product B",
-      "price": 200
+      "name": "Gọng kim loại"
+    }
+  ],
+  "products": [
+    {
+      "name": "dư",
+      "price": "2",
+      "img": "dưa",
+      "materialId": "1",
+      "color": "dưa",
+      "quantity": "2",
+      "info": "đưa",
+      "id": 1
+    },
+    {
+      "name": "gvt",
+      "price": "555",
+      "img": "ftdtd",
+      "materialId": "1",
+      "color": "cyty",
+      "quantity": "555",
+      "info": "ffffff",
+      "id": 2
     }
   ]
 }

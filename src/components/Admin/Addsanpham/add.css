@@ -1,0 +1,65 @@
+.formadd form {
+    margin-left: 20%;
+    padding: 30px;
+}
+
+.formadd select {
+    margin-left: 12.8%;
+}
+
+.formadd label {
+    width: 450px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.formadd input,
+textarea,
+select {
+    padding: 5px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.formadd label {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.error {
+    color: red;
+    margin-top: 5px;
+    position: relative;
+    right: -500px;
+    top: -40px;
+}
+
+.formadd button {
+    padding: 10px 50px;
+    color: white;
+    margin-left: 23%;
+    margin-top: 40px;
+    font-weight: 700;
+    background-color: cadetblue;
+    border: none;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+
+.formadd button:hover {
+    padding: 10px 50px;
+    transition: 0.5s;
+    color: white;
+    margin-left: 23%;
+    font-weight: 700;
+    margin-top: 40px;
+    background-color: coral;
+    color: black;
+    border: none;
+    border-radius: 5px;
+}
+
+.thongbaothanhcong {
+    width: 390px;
+    display: flex;
+    align-items: center;
+}

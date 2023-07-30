@@ -21,3 +21,33 @@
 .listproduct tbody {
     padding: 20px;
 }
+
+.listproduct img {
+    width: 110px;
+    border-radius: 15px;
+}
+
+.listproduct .chucnang {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 40px;
+    gap: 10px;
+}
+
+.sua {
+    background-color: cornflowerblue;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.xoa {
+    background-color: rgb(154, 16, 16);
+    padding: 10px 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
