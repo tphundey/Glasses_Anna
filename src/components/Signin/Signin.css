@@ -95,3 +95,11 @@
     margin-top: 20px;
     color: #81c8c2;
 }
+.luu input {
+    width: 30px;
+}
+.luu{
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}

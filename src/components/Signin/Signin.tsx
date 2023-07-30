@@ -22,7 +22,12 @@ const Signin = () => {
               <label className="tk_pas">MẬT KHẨU *</label> <br />
               <input type="text" />
             </div>
-            <input type="radio" name="" id="" /> Lưu tài khoản <br />
+            <div className="luu">
+              <input type="radio" name="" id="" />
+              <div className="text_luu">
+                Lưu tài khoản
+              </div> <br />
+            </div>
             <button className="btn-signin">Đăng nhập</button>
             <br />
             <a href="" className="quen_pass">Quên mật khẩu</a>
