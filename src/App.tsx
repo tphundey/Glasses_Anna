@@ -9,6 +9,7 @@ import Sanpham from "./components/Sanpham";
 import Thanhtoan from "./components/Thanhtoan";
 import Signup from "./components/Signup/Signup";
 import Signin from "./components/Signin/Signin";
+import Hoadon from "./components/HoaDon/Hoadon";
 import BaseLayoutadmin from "./components/Admin/BaseAdmin/BaseAdmin";
 import Listproduct from "./components/Admin/Listproduct/Listproduct";
 import Listdanhmuc from "./components/Admin/Listdanhmuc/Listdanhmuc";
@@ -23,7 +24,38 @@ interface Product {
 }
 
 function App() {
+<<<<<<< HEAD
   const [products, setProducts] = useState<Product[]>([]);
+=======
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<BaseLayout />}>
+                    <Route index element={<Home />} />
+                    <Route path="/products">
+                        <Route index element={<Sanpham />} />
+                        <Route path=":id" element={<ProductDetail />} />
+                    </Route>
+                    <Route path="/hoadon" element={<Hoadon/>}/>
+                    <Route path="/thanhtoan" element={<Thanhtoan />} />
+                    <Route path="/signin" element={<Signin />} />
+                    <Route path="/signup" element={<Signup />} />
+                </Route>
+                <Route path="/admin" element={<BaseLayoutadmin />}>
+                    <Route index element={<Listproduct />} />
+                </Route>
+                <Route path="/admin/danhmuc" element={<BaseLayoutadmin />}>
+                    <Route index element={<Listdanhmuc />} />
+                </Route>
+                <Route path="/admin/user" element={<BaseLayoutadmin />}>
+                    <Route index element={<Listuser />} />
+                </Route>
+                <Route path="/admin/donhang" element={<BaseLayoutadmin />}>
+                    <Route index element={<Listdonhang />} />
+                </Route>
+            </Routes>
+        </Router>
+>>>>>>> f18af52704c530c73480bcf50f598bab6ec414aa
 
   const handleAddProduct = (newProduct: Product) => {
     setProducts([...products, newProduct]);
