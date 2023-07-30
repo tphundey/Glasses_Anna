@@ -8,6 +8,7 @@ import Sanpham from "./components/Sanpham";
 import Thanhtoan from "./components/Thanhtoan"
 import Signup from "./components/Signup/Signup";
 import Signin from "./components/Signin/Signin";
+import Hoadon from "./components/HoaDon/Hoadon";
 import BaseLayoutadmin from "./components/Admin/BaseAdmin/BaseAdmin";
 import Listproduct from "./components/Admin/Listproduct/Listproduct";
 import Listdanhmuc from "./components/Admin/Listdanhmuc/Listdanhmuc";
@@ -24,6 +25,7 @@ function App() {
                         <Route index element={<Sanpham />} />
                         <Route path=":id" element={<ProductDetail />} />
                     </Route>
+                    <Route path="/hoadon" element={<Hoadon/>}/>
                     <Route path="/thanhtoan" element={<Thanhtoan />} />
                     <Route path="/signin" element={<Signin />} />
                     <Route path="/signup" element={<Signup />} />
