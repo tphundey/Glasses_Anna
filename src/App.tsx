@@ -1,6 +1,6 @@
 import "react-loading-skeleton/dist/skeleton.css";
 import "./App.css";
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import BaseLayout from "./components/BaseLayout/BaseLayout";
 import Home from "./components/TrangChu";
@@ -57,22 +57,22 @@ function App() {
         <Route path="/admin" element={<BaseLayoutadmin />}>
           <Route index element={<Listproduct />} />
           <Route path="addsanpham" element={<AddProductFormProps onAddProduct={handleAddProduct} />} />
-          <Route path="suasanpham/:id" element={<SuaSanPham/>} />
+          <Route path="suasanpham/:id" element={<SuaSanPham />} />
           {/* <Route path="category" element={<Listdanhmuc />} />
           <Route path="addCate" element={<AddCategory onAddCategory={handleAddCate}/>}/>
           <Route path="updateCate/:id" element={<UpdateCategory/>} /> */}
 
           <Route path="category">
             <Route index element={<Listdanhmuc />} />
-            <Route path="addCate" element={<AddCategory onAddCategory={handleAddCate}/>}/>
-            <Route path="updateCate/:id" element={<UpdateCategory/>}/>
+            <Route path="addCate" element={<AddCategory onAddCategory={handleAddCate} />} />
+            <Route path="updateCate/:id" element={<UpdateCategory />} />
           </Route>
 
           <Route path="user" element={<Listuser />} />
           <Route path="donhang" element={<Listdonhang />} />
         </Route>
 
-        
+
       </Routes>
     </Router>
   );

@@ -1,5 +1,21 @@
 {
   "users": [],
+  "cart": [
+    {
+      "product": {
+        "name": "téssupdate",
+        "price": "23",
+        "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg",
+        "materialId": "1",
+        "color": "fé",
+        "quantity": "34",
+        "info": "fé",
+        "id": 1
+      },
+      "quantity": 3,
+      "id": 1
+    }
+  ],
   "categories": [
     {
       "id": 1,
@@ -12,15 +28,11 @@
     {
       "id": 3,
       "name": "Gọng kim cương"
-    },
-    {
-      "name": "danh muc new 1",
-      "id": 4
     }
   ],
   "products": [
     {
-      "name": "téss ádasd",
+      "name": "kinhmat",
       "price": "23",
       "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg",
       "materialId": "1",
@@ -28,36 +40,6 @@
       "quantity": "34",
       "info": "fé",
       "id": 1
-    },
-    {
-      "name": "dấd",
-      "price": "23",
-      "img": "ádasd",
-      "materialId": "2",
-      "color": "áda",
-      "quantity": "1",
-      "info": "sadas",
-      "id": 2
-    },
-    {
-      "name": "đâs",
-      "price": "213",
-      "img": "ưeqqwe",
-      "materialId": "2",
-      "color": "ádasd",
-      "quantity": "2",
-      "info": "ưqe",
-      "id": 3
-    },
-    {
-      "name": "aa",
-      "price": "1",
-      "img": "ưqe",
-      "materialId": "5",
-      "color": "eqwe",
-      "quantity": "1",
-      "info": "qeq",
-      "id": 4
     }
   ]
 }

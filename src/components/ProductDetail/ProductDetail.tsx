@@ -1,13 +1,26 @@
 import "./ProductDetail.css";
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { addToCart, updateCartItem } from "@/actions/cart";
+import { useDispatch, useSelector } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  color: string;
+  info: string;
+}
 
 const ProductDetail = () => {
-
-  const [product, setProduct] = useState(null);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  const dispatch = useDispatch();
+  const [product, setProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   useEffect(() => {
     // Gọi action để lấy sản phẩm theo ID khi component tải lên
     getProductById(id);
@@ -35,8 +48,37 @@ const ProductDetail = () => {
     if (quantity < 5) {
       setQuantity(quantity + 1);
     }
-
   }
+
+  const handleAddToCart = () => {
+    const cartItem = { product, quantity };
+    if (product) {
+      const existingCartItem = cartItems.find((item) => item.product.id === product.id);
+      if (existingCartItem) {
+        // Nếu sản phẩm đã tồn tại trong giỏ hàng, tính tổng số lượng mới
+        const updatedQuantity = existingCartItem.quantity + quantity;
+        if (updatedQuantity <= 5) {
+          // Nếu tổng số lượng mới không vượt quá giới hạn 5, cập nhật số lượng trong giỏ hàng
+          const updatedCartItem = { ...existingCartItem, quantity: updatedQuantity };
+          dispatch(updateCartItem(updatedCartItem)); // Gọi action updateCartItem để cập nhật số lượng sản phẩm trong giỏ hàng
+        } else {
+          // Nếu tổng số lượng mới vượt quá giới hạn 5, thông báo lỗi
+          toast.error('Không thể thêm sản phẩm vào giỏ hàng. Số lượng vượt quá giới hạn (tối đa 5 sản phẩm).', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 3000, // Thời gian tự động biến mất sau 3 giây
+          });
+        }
+      } else {
+        // Nếu sản phẩm chưa tồn tại trong giỏ hàng, thêm sản phẩm mới
+        dispatch(addToCart(cartItem)); // Gọi action addToCart để thêm sản phẩm vào giỏ hàng
+        toast.success('Thêm thành công!', {
+          className: 'thongbaothanhcong',
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000, // Thời gian tự động biến mất sau 3 giây
+        });
+      }
+    }
+  };
   return (
     <div className="container">
       <div className="product_detail">
@@ -67,7 +109,7 @@ const ProductDetail = () => {
                 <button className="btn_quantily up" onClick={handleIncrease}>+</button>
               </div>
               <div className="add_cart">
-                <button>Thêm Vào Giỏ Hàng</button>
+                <button onClick={handleAddToCart}>Thêm Vào Giỏ Hàng</button>
               </div>
               <hr />
             </div>
@@ -96,7 +138,9 @@ const ProductDetail = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
+
   );
 };
 

@@ -1,5 +1,4 @@
 import { instance } from "@/axios/config";
-import { pause } from "@/utils/pause";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getProduct = createAsyncThunk(
