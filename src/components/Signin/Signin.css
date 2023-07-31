@@ -1,5 +1,6 @@
 .container_signin {
     width: 1300px;
+    margin: 0px auto;
 }
 
 .wrapper_signin {
@@ -63,9 +64,10 @@
     background-color: #a00;
 }
 
-.passs{
+.passs {
     margin-top: 10px;
 }
+
 .quen_pass {
     text-decoration: none;
 }
@@ -98,10 +100,12 @@
     margin-top: 20px;
     color: #81c8c2;
 }
+
 .luu input {
     width: 30px;
 }
-.luu{
+
+.luu {
     display: flex;
     align-items: center;
     /* justify-content: center; */
