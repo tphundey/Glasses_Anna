@@ -1,10 +1,30 @@
 import "./ProductDetail.css";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const ProductDetail = () => {
 
+  const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
+  const { id } = useParams();
+  useEffect(() => {
+    // Gọi action để lấy sản phẩm theo ID khi component tải lên
+    getProductById(id);
+  }, [id]);
 
+  const getProductById = async (id) => {
+    try {
+      const response = await axios.get(`http://localhost:3000/products/${id}`); // Thay đổi đường dẫn tới API của bạn
+      setProduct(response.data);
+    } catch (error) {
+      console.error("Error fetching product:", error);
+      setProduct(null);
+    }
+  };
+  if (!product) {
+    return <div>Đang tải...</div>;
+  }
   const handleDecrease = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
@@ -29,13 +49,14 @@ const ProductDetail = () => {
           </div>
           <div className="detail_info-right">
             <div className="info-top">
-              <div className="name">GK - 200CK032</div> <br />
-              <div className="price">200,000₫</div>
+              <div className="name">{product.name}</div> <br />
+              <div className="price">{product.price}.000₫</div>
               <div className="title">
                 <p>Mã sản phẩm: 200CK032</p>
                 <p>Chất liệu: Kim loại</p>
-                <p>Màu sắc: Trắng, Đen hồng, Hồng, Đen vàng, Đen trắng, Đen</p>
-                <p>Gía sản phẩm: 200.000</p>
+                <p>Màu sắc: {product.color}</p>
+                <p>Thông tin: {product.info}</p>
+
               </div>
               <div className="ship">
                 Miễn phí giao hàng từ 500k ( vận chuyển 3 - 5 ngày )

@@ -39,8 +39,6 @@ const SuaSanPham: React.FC = () => {
     }, [dispatch, id]);
 
 
-
-
     const onSubmit = (data: Product) => {
         // Gọi action để cập nhật sản phẩm
         dispatch(updateProduct(data));

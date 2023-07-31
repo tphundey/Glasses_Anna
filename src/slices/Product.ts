@@ -60,6 +60,8 @@ const productSlice = createSlice({
             const id = action.payload;
             state.products = state.products.filter((item: any) => item.id !== id)
         })
+
+        
     }
 })
 

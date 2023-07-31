@@ -1,7 +1,16 @@
 import "./style.css"
-
+import React, { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from "@/store/hook";
+import { getProduct, removeProduct, updateProduct } from '@/actions/product';
+import Skeleton from "react-loading-skeleton";
+import { Link } from 'react-router-dom';
 const Sanpham = () => {
+    const dispatch = useAppDispatch();
+    const { products, isLoading, error } = useAppSelector((state: any) => state.products);
 
+    useEffect(() => {
+        dispatch(getProduct());
+    }, []);
     return (
         <div>
 
@@ -54,55 +63,19 @@ const Sanpham = () => {
                         </div>
                     </div>
                     <div className="list">
-                        <div className="product">
-                            <a href="/products/:id">
-                            <div className="image">
-                                <img src="https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg" alt="" />
-                            </div>
-                            <div className="name">GK - 380CK116</div>
-                            <div className="price">342,000đ</div>
-                            </a>
-                        </div>
+                        {products.map((item: any) => (
+                            <div key={item.id} className="product">
+                                <Link to={`/products/${item.id}`} >
 
-                        <div className="product">
-                            <div className="image">
-                                <img src="https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg" alt="" />
+                                    <div className="image">
+                                        <img src={item.img} alt="" />
+                                    </div>
+                                    <div className="name">{item.name}</div>
+                                    <div className="price">{item.price}.000đ</div>
+                                </Link>
                             </div>
-                            <div className="name">GK - 380CK116</div>
-                            <div className="price">342,000đ</div>
-                        </div>
+                        ))}
 
-                        <div className="product">
-                            <div className="image">
-                                <img src="https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg" alt="" />
-                            </div>
-                            <div className="name">GK - 380CK116</div>
-                            <div className="price">342,000đ</div>
-                        </div>
-
-                        <div className="product">
-                            <div className="image">
-                                <img src="https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg" alt="" />
-                            </div>
-                            <div className="name">GK - 380CK116</div>
-                            <div className="price">342,000đ</div>
-                        </div>
-
-                        <div className="product">
-                            <div className="image">
-                                <img src="https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg" alt="" />
-                            </div>
-                            <div className="name">GK - 380CK116</div>
-                            <div className="price">342,000đ</div>
-                        </div>
-
-                        <div className="product">
-                            <div className="image">
-                                <img src="https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg" alt="" />
-                            </div>
-                            <div className="name">GK - 380CK116</div>
-                            <div className="price">342,000đ</div>
-                        </div>
                     </div>
                 </div>
 

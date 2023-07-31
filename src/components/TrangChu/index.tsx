@@ -1,6 +1,19 @@
 import "./style.css"
-
+import React, { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from "@/store/hook";
+import { getProduct, removeProduct, updateProduct } from '@/actions/product';
+import Skeleton from "react-loading-skeleton";
+import { Link } from 'react-router-dom';
 const Home = () => {
+
+    const dispatch = useAppDispatch();
+    const { products, isLoading, error } = useAppSelector((state: any) => state.products);
+
+    useEffect(() => {
+        dispatch(getProduct());
+    }, []);
+
+
     return (
         <div>
             <div className="banner">
@@ -13,53 +26,17 @@ const Home = () => {
                     <div className="tl2">HÀNG MỚI LÊN KỆ</div>
                 </div>
                 <div className="list-tc">
-                    <div className="product">
-                        <div className="image">
-                            <img src="https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg" alt="" />
+                    {products.map((item: any) => (
+                        <div className="product">
+                            <div className="image">
+                                <img src={item.img} alt="" />
+                            </div>
+                            <div className="name">{item.name}</div>
+                            <div className="price">{item.price}.000đ</div>
                         </div>
-                        <div className="name">GK - 380CK116</div>
-                        <div className="price">342,000đ</div>
-                    </div>
+                    ))}
 
-                    <div className="product">
-                        <div className="image">
-                            <img src="https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg" alt="" />
-                        </div>
-                        <div className="name">GK - 380CK116</div>
-                        <div className="price">342,000đ</div>
-                    </div>
 
-                    <div className="product">
-                        <div className="image">
-                            <img src="https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg" alt="" />
-                        </div>
-                        <div className="name">GK - 380CK116</div>
-                        <div className="price">342,000đ</div>
-                    </div>
-
-                    <div className="product">
-                        <div className="image">
-                            <img src="https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg" alt="" />
-                        </div>
-                        <div className="name">GK - 380CK116</div>
-                        <div className="price">342,000đ</div>
-                    </div>
-
-                    <div className="product">
-                        <div className="image">
-                            <img src="https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg" alt="" />
-                        </div>
-                        <div className="name">GK - 380CK116</div>
-                        <div className="price">342,000đ</div>
-                    </div>
-
-                    <div className="product">
-                        <div className="image">
-                            <img src="https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg" alt="" />
-                        </div>
-                        <div className="name">GK - 380CK116</div>
-                        <div className="price">342,000đ</div>
-                    </div>
                 </div>
                 <div className="title">
                     <div className="tl1">ĐỊA ĐIỂM</div>
