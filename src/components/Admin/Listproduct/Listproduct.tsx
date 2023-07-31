@@ -1,8 +1,7 @@
 import './Listproduct.css';
-import React, { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import { useAppDispatch, useAppSelector } from "@/store/hook";
-import { getProduct, removeProduct, updateProduct } from '@/actions/product';
-import Skeleton from "react-loading-skeleton";
+import { getProduct, removeProduct } from '@/actions/product';
 import { Link } from 'react-router-dom';
 
 const Listproduct = () => {

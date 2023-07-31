@@ -9,10 +9,10 @@ const Aside = () => {
         <br />
           <span>QUẢN LÝ</span>
           <ul>
-            <li><a href="http://localhost:5173/admin">Quản lý sản phẩm</a></li>
-            <li><a href="http://localhost:5173/admin/danhmuc">Quản lý danh mục</a></li>
-            <li><a href="http://localhost:5173/admin/user">Quản lý người dùng</a></li>
-            <li><a href="http://localhost:5173/admin/donhang">Quản lý đơn hàng</a></li>
+            <li><a href="/admin">Quản lý sản phẩm</a></li>
+            <li><a href="/admin/category">Quản lý danh mục</a></li>
+            <li><a href="/admin/user">Quản lý người dùng</a></li>
+            <li><a href="/admin/donhang">Quản lý đơn hàng</a></li>
           </ul>
           <br />
           <span>THỐNG KÊ</span>

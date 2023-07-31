@@ -55,7 +55,15 @@ export const removeProduct = createAsyncThunk(
     'product/fetchProducts',
     async (id) => {
         try {
-            await instance.delete(`/products/${id}`);
+            const confirm = window.confirm("Bạn có chắc xóa chứ!");
+            if(confirm) {
+                await instance.delete(`/products/${id}`);
+                alert(`Xóa thành công`);
+            }else {
+                // If the user cancels the deletion, return early without doing anything
+                return;
+            }
+            
             return id;
         } catch (error) {
 

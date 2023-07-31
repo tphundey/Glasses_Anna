@@ -17,18 +17,27 @@ import Listuser from "./components/Admin/Listuser/Listuser";
 import Listdonhang from "./components/Admin/Listdonhang/Listdonhang";
 import AddProductFormProps from "./components/Admin/Addsanpham/Addsanpham";
 import SuaSanPham from "./components/Admin/Updatesanpham/Updatesanpham";
+import AddCategory from "./components/Admin/Adddanhmuc/Adddanhmuc";
+import UpdateCategory from "./components/Admin/UpdateCategory/UpdateCategory";
 interface Product {
   id: number;
   name: string;
   price: number;
 }
+interface Category {
+  id: number;
+  name: string;
+}
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategory] = useState<Category[]>([]);
   const handleAddProduct = (newProduct: Product) => {
     setProducts([...products, newProduct]);
   };
-
+  const handleAddCate = (newCate: Product) => {
+    setCategory([...categories, newCate]);
+  }
   return (
     <Router>
       <Routes>
@@ -42,28 +51,28 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/hoadon" element={<Hoadon />} />
-
         </Route>
+
+        {/* router admin */}
         <Route path="/admin" element={<BaseLayoutadmin />}>
           <Route index element={<Listproduct />} />
-        </Route>
-        <Route path="/admin/addsanpham" element={<BaseLayoutadmin />}>
-          <Route index element={<AddProductFormProps onAddProduct={handleAddProduct} />} />
-        </Route>
-        <Route path="/admin/suasanpham/:id" element={<BaseLayoutadmin />}>
-          <Route index element={<SuaSanPham />} />
+          <Route path="addsanpham" element={<AddProductFormProps onAddProduct={handleAddProduct} />} />
+          <Route path="suasanpham/:id" element={<SuaSanPham/>} />
+          {/* <Route path="category" element={<Listdanhmuc />} />
+          <Route path="addCate" element={<AddCategory onAddCategory={handleAddCate}/>}/>
+          <Route path="updateCate/:id" element={<UpdateCategory/>} /> */}
+
+          <Route path="category">
+            <Route index element={<Listdanhmuc />} />
+            <Route path="addCate" element={<AddCategory onAddCategory={handleAddCate}/>}/>
+            <Route path="updateCate/:id" element={<UpdateCategory/>}/>
+          </Route>
+
+          <Route path="user" element={<Listuser />} />
+          <Route path="donhang" element={<Listdonhang />} />
         </Route>
 
-
-        <Route path="/admin/danhmuc" element={<BaseLayoutadmin />}>
-          <Route index element={<Listdanhmuc />} />
-        </Route>
-        <Route path="/admin/user" element={<BaseLayoutadmin />}>
-          <Route index element={<Listuser />} />
-        </Route>
-        <Route path="/admin/donhang" element={<BaseLayoutadmin />}>
-          <Route index element={<Listdonhang />} />
-        </Route>
+        
       </Routes>
     </Router>
   );
