@@ -1,35 +1,44 @@
 {
   "users": [],
-  "cart": [
+  "googleAccount": [
     {
-      "product": {
-        "name": "téssupdate",
-        "price": "23",
-        "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg",
-        "materialId": "1",
-        "color": "fé",
-        "quantity": "34",
-        "info": "fé",
-        "id": 1
-      },
-      "quantity": 3,
+      "email": "anhnek033@gmail.com",
+      "name": "Xế biết code",
+      "img": "https://lh3.googleusercontent.com/a/AAcHTtdQrW_PX3riN9qotN_24lK0M3ahKnWCxbwjvA8VpfKIyQ=s96-c",
       "id": 1
     },
     {
-      "product": {
-        "name": "kinhmat",
-        "price": "23",
-        "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4094-copy-1-300x300.jpg",
-        "materialId": "1",
-        "color": "fé",
-        "quantity": "34",
-        "info": "fé",
-        "id": 1
-      },
-      "quantity": 5,
+      "email": "bosstrum4x@gmail.com",
+      "name": "tai dinh",
+      "img": "https://lh3.googleusercontent.com/a/AAcHTtcqimdv5aqaPQUyfLo8tpZe_ImaKTZW2P7OhXlEuGF4=s96-c",
       "id": 2
+    },
+    {
+      "email": "anhnek033@gmail.com",
+      "name": "Xế biết code",
+      "img": "https://lh3.googleusercontent.com/a/AAcHTtdQrW_PX3riN9qotN_24lK0M3ahKnWCxbwjvA8VpfKIyQ=s96-c",
+      "id": 3
+    },
+    {
+      "email": "anhnek033@gmail.com",
+      "name": "Xế biết code",
+      "img": "https://lh3.googleusercontent.com/a/AAcHTtdQrW_PX3riN9qotN_24lK0M3ahKnWCxbwjvA8VpfKIyQ=s96-c",
+      "id": 4
+    },
+    {
+      "email": "bosstrum4x@gmail.com",
+      "name": "tai dinh",
+      "img": "https://lh3.googleusercontent.com/a/AAcHTtcqimdv5aqaPQUyfLo8tpZe_ImaKTZW2P7OhXlEuGF4=s96-c",
+      "id": 5
+    },
+    {
+      "email": "anhnek033@gmail.com",
+      "name": "Xế biết code",
+      "img": "https://lh3.googleusercontent.com/a/AAcHTtdQrW_PX3riN9qotN_24lK0M3ahKnWCxbwjvA8VpfKIyQ=s96-c",
+      "id": 6
     }
   ],
+  "cart": [],
   "categories": [
     {
       "id": 1,
@@ -54,7 +63,7 @@
     },
     {
       "name": "Kínhsố2",
-      "price": "120",
+      "price": 120,
       "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4017-1-300x300.jpg",
       "categoriesId": 2,
       "color": "red",
