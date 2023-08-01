@@ -1,14 +1,42 @@
 import "./style.css"
-import React, { useState } from 'react';
-
-
+import { useState, useEffect } from 'react';
+import { GoogleLogout } from "react-google-login";
+import { useNavigate } from 'react-router-dom';
+const clientId = "617522400337-v8petg67tn301qkocslk6or3j9c4jjmn.apps.googleusercontent.com"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Header = () => {
     const [showDiv, setShowDiv] = useState(false);
+    const [isSignedIn, setIsSignedIn] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        // Check the user's login status from local storage
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+        setIsSignedIn(isLoggedIn);
+
+    }, []);
 
     const toggleDiv = (event: any) => {
-        event.preventDefault(); // Ngăn chặn chuyển hướng đến URL không hợp lệ
+        event.preventDefault();
         setShowDiv(!showDiv);
     };
+
+    const onSuccess = () => {
+        console.log("Log out successfull !");
+        localStorage.setItem('isLoggedIn', 'false');
+
+        toast.success('Đã đăng xuất tài khoản!', {
+            className: 'thongbaothanhcong',
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 2000, // Thời gian tự động biến mất sau 3 giây
+        });
+        setTimeout(() => {
+            navigate('/')
+            location.reload()
+        }, 2000);
+    }
+
     return (
         <div>
             <header>
@@ -35,7 +63,18 @@ const Header = () => {
                         <div className="option">
                             <ul>
                                 <li><a href=""><img className="a" src="https://cdn.icon-icons.com/icons2/1129/PNG/512/searchmagnifierinterfacesymbol_79894.png" alt="" /></a></li>
-                                <li><a href="/signin"><img className="b" src="https://cdn.icon-icons.com/icons2/2987/PNG/512/home_set_of_house_clipart_icon_187233.png" alt="" /></a></li>
+                                {/* ...Other header options here... */}
+                                {isSignedIn ? (
+                                    <li>
+                                        <GoogleLogout
+                                            clientId={clientId}
+                                            buttonText="Logout"
+                                            onLogoutSuccess={onSuccess}
+                                        />
+                                    </li>
+                                ) : (
+                                    <li><a href="/signin"><img className="b" src="https://cdn.icon-icons.com/icons2/2987/PNG/512/home_set_of_house_clipart_icon_187233.png" alt="" /></a></li>
+                                )}
                                 <li><a onClick={toggleDiv} href=""><img onClick={toggleDiv} className="c" src="https://cdn.icon-icons.com/icons2/1302/PNG/512/onlineshoppingcart_85781.png" alt="" /></a></li>
                                 <span className="count">0</span>
                             </ul>
@@ -71,9 +110,9 @@ const Header = () => {
                     SEE BETTER THAN YESTERDAY - ANNA LOVE YOU!
                 </div>
             </nav>
-
+            {/* Component ToastContainer để hiển thị thông báo */}
+            <ToastContainer />
         </div>
-
     );
 };
 

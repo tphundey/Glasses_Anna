@@ -1,5 +1,5 @@
 import './Listproduct.css';
-import { useEffect} from 'react';
+import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from "@/store/hook";
 import { getProduct, removeProduct } from '@/actions/product';
 import { Link } from 'react-router-dom';
@@ -37,7 +37,7 @@ const Listproduct = () => {
                             <td><img src={item.img} alt="" /></td>
                             <td>{item.name}</td>
                             <td>{item.price}</td>
-                            <td>{item.materialId}</td>
+                            <td>{item.categoriesId}</td>
                             <td>{item.color}</td>
                             <td>{item.quantity}</td>
                             <td className='chucnang'>

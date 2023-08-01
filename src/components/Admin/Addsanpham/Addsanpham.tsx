@@ -12,7 +12,7 @@ interface Product {
   name: string;
   price: number;
   img: string;
-  materialId: number;
+  categoriesId: number;
   color: string;
   quantity: number;
   info: string;
@@ -131,11 +131,17 @@ const AddProductForm: React.FC<AddProductFormProps> = () => {
         </div>
         <div>
           <Controller
-            name="materialId"
+            name="categoriesId"
             control={control}
             rules={{ required: 'Vui lòng chọn chất liệu' }}
             render={({ field }) => (
-              <select {...field}>
+              <select
+                {...field}
+                onChange={(e) => {
+                  const value = parseInt(e.target.value, 10); // Chuyển đổi giá trị sang kiểu number
+                  field.onChange(value); // Cập nhật giá trị trong `Controller` là kiểu number
+                }}
+              >
                 <option value="">-- Chọn chất liệu --</option>
                 {materials.map((material) => (
                   <option key={material.id} value={material.id}>
@@ -145,8 +151,9 @@ const AddProductForm: React.FC<AddProductFormProps> = () => {
               </select>
             )}
           />
-          {errors.materialId && <div className="error">{errors.materialId.message}</div>}
+          {errors.categoriesId && <div className="error">{errors.categoriesId.message}</div>}
         </div>
+
         <div>
           <label>
             Màu sắc:
