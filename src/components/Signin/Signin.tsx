@@ -4,6 +4,7 @@ import { GoogleLogin } from 'react-google-login';
 import { gapi } from 'gapi-script'
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 const clientId = "617522400337-v8petg67tn301qkocslk6or3j9c4jjmn.apps.googleusercontent.com"
 
@@ -11,8 +12,29 @@ const Signin = () => {
 
   const navigate = useNavigate();
   const onSuccess = (res: any) => {
+
+    const profile = {
+      email: res.profileObj.email,
+      name: res.profileObj.name,
+      img: res.profileObj.imageUrl
+    };
+    // Chuyển đổi object profile thành chuỗi JSON
+    const profileJSON = JSON.stringify(profile);
+
     console.log("Login Success", res.profileObj);
     localStorage.setItem('isLoggedIn', 'true');
+    localStorage.setItem('profile', profileJSON);
+
+    // Gửi dữ liệu profile lên API bằng Axios
+    axios.post('http://localhost:3000/googleAccount', profile)
+      .then(response => {
+        console.log('Post thông tin tài khoản thành công !');
+        // Xử lý phản hồi từ API nếu cần thiết
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
     toast.success('Đăng nhập thành công!', {
       className: 'thongbaothanhcong',
       position: toast.POSITION.TOP_CENTER,
@@ -40,7 +62,7 @@ const Signin = () => {
     };
     gapi.load('client:auth2', start)
   })
-  
+
   return (
     <div className="container_signin">
       <div className="wrapper_signin">

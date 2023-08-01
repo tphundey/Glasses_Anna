@@ -119,6 +119,7 @@ nav {
 .cart {
     display: flex;
     gap: 20px;
+    margin-bottom: 20px;
 }
 
 .tencart {
@@ -144,7 +145,8 @@ nav {
     color: white;
     padding: 10px 40px;
     border-radius: 10px;
-    margin-left: 27%;
+    position: relative;
+    left: -50px;
     margin-top: 10px;
 }
 
@@ -158,8 +160,8 @@ nav {
     background: none;
     border: none;
     color: white;
-    position: relative;
-    top: -200px;
-    left: 50px;
+    position: absolute;
+    top: 45px;
+    right: 20px;
     font-size: 20px;
 }

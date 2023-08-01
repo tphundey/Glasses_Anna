@@ -14,7 +14,11 @@ interface Product {
   color: string;
   info: string;
 }
-
+interface CartItem {
+  product: Product;
+  quantity: number;
+  userProfile: UserProfile; // Include the UserProfile in the cart item.
+}
 const ProductDetail = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
@@ -51,31 +55,36 @@ const ProductDetail = () => {
   }
 
   const handleAddToCart = () => {
-    const cartItem = { product, quantity };
+    const userProfile = JSON.parse(localStorage.getItem("profile") || "{}");
+    if (!userProfile || Object.keys(userProfile).length === 0) {
+      // If user profile is not available, show alert and ask user to log in or sign up.
+      alert("Vui lòng đăng nhập hoặc đăng ký để thêm sản phẩm vào giỏ hàng.");
+      return;
+    }
+    const cartItem: CartItem = { product, quantity, userProfile };
     if (product) {
       const existingCartItem = cartItems.find((item) => item.product.id === product.id);
       if (existingCartItem) {
-        // Nếu sản phẩm đã tồn tại trong giỏ hàng, tính tổng số lượng mới
         const updatedQuantity = existingCartItem.quantity + quantity;
         if (updatedQuantity <= 5) {
-          // Nếu tổng số lượng mới không vượt quá giới hạn 5, cập nhật số lượng trong giỏ hàng
           const updatedCartItem = { ...existingCartItem, quantity: updatedQuantity };
-          dispatch(updateCartItem(updatedCartItem)); // Gọi action updateCartItem để cập nhật số lượng sản phẩm trong giỏ hàng
+          dispatch(updateCartItem(updatedCartItem));
         } else {
-          // Nếu tổng số lượng mới vượt quá giới hạn 5, thông báo lỗi
           toast.error('Không thể thêm sản phẩm vào giỏ hàng. Số lượng vượt quá giới hạn (tối đa 5 sản phẩm).', {
             position: toast.POSITION.TOP_CENTER,
-            autoClose: 3000, // Thời gian tự động biến mất sau 3 giây
+            autoClose: 3000,
           });
         }
       } else {
-        // Nếu sản phẩm chưa tồn tại trong giỏ hàng, thêm sản phẩm mới
-        dispatch(addToCart(cartItem)); // Gọi action addToCart để thêm sản phẩm vào giỏ hàng
+        dispatch(addToCart(cartItem));
         toast.success('Thêm thành công!', {
           className: 'thongbaothanhcong',
           position: toast.POSITION.TOP_CENTER,
-          autoClose: 3000, // Thời gian tự động biến mất sau 3 giây
+          autoClose: 3000,
         });
+        setTimeout(() => {
+          location.reload()
+        }, 3000);
       }
     }
   };
