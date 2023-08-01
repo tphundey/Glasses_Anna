@@ -1,5 +1,12 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "duytv.dev@gmail.com",
+      "password": "$2a$10$Fg4XjeAMS3.BIMk6V5lqIO0xKcFbPM2ZnydS6ODVmF.9cu1Qp27nG",
+      "fullName": "duy",
+      "id": 1
+    }
+  ],
   "cart": [
     {
       "product": {
