@@ -1,28 +1,21 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Listdonhang = () => {
-    // Dữ liệu mẫu về danh sách đơn hàng
-    const orderData = [
-        {
-            id: 1,
-            orderCode: 'DH001',
-            customerName: 'Nguyễn Văn Anh',
-            products: [
-                { name: 'Kính mát cổ điển', quantity: 3, price: 150 },
-                { name: 'Kính cận thời trang', quantity: 1, price: 180 },
-            ],
-            totalAmount: 630,
-            status: 'Đang giao hàng',
-        },
-        {
-            id: 2,
-            orderCode: 'DH002',
-            customerName: 'Trần Thị Bình',
-            products: [{ name: 'Kính cận thời trang', quantity: 4, price: 180 }],
-            totalAmount: 720,
-            status: 'Đã giao hàng',
-        },
-        // Thêm các dữ liệu khác nếu cần
-    ];
+    const [orderData, setOrderData] = useState([]);
+
+    useEffect(() => {
+        // Fetch data from the API
+        axios.get('http://localhost:3000/hoadon')
+            .then((response) => {
+                // Handle the data received from the API
+                setOrderData(response.data);
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            });
+    }, []);
+
     return (
         <div className="listproduct">
             <table>
@@ -30,43 +23,40 @@ const Listdonhang = () => {
                     <tr>
                         <th>Mã đơn hàng</th>
                         <th>Tên khách hàng</th>
-                        <th>Tên sản phẩm</th>
-                        <th>Số lượng</th>
-                        <th>Đơn giá</th>
-                        <th>Tổng tiền</th>
-                        <th>Trạng thái</th>
-                        <th></th>
+
+                        <th>Số điện thoại</th>
+                        <th>Thành phố</th>
+
+                        <th>Địa chỉ</th>
+
+                        <th>Phương thức thanh toán</th>
+                        <th>Tổng giá trị đơn hàng</th>
+                        <th>Thông tin sản phẩm</th>
                     </tr>
                 </thead>
                 <tbody>
                     {orderData.map((order) => (
                         <tr key={order.id}>
-                            <td>{order.orderCode}</td>
-                            <td>{order.customerName}</td>
+                            <td>{order.id}</td>
+                            <td>{order.name}</td>
+
+                            <td>{order.phone}</td>
+                            <td>{order.city}</td>
+
+                            <td>{order.address}</td>
+
+                            <td>{order.paymentMethod}</td>
+                            <td>{order.totalPrice}</td>
                             <td>
-                                {order.products.map((product) => (
-                                    <div key={product.name}>
-                                        {product.name}
-                                    </div>
-                                ))}
+                                <ul>
+                                    {order.cartItems.map((item) => (
+                                        <li key={item.id}>
+                                            <p>Tên sản phẩm: {item.product.name}</p>
+                                            <p>Số lượng: {item.quantity}</p>
+                                        </li>
+                                    ))}
+                                </ul>
                             </td>
-                            <td>
-                                {order.products.map((product) => (
-                                    <div key={product.name}>
-                                        {product.quantity}
-                                    </div>
-                                ))}
-                            </td>
-                            <td>
-                                {order.products.map((product) => (
-                                    <div key={product.name}>
-                                        {product.price}
-                                    </div>
-                                ))}
-                            </td>
-                            <td>{order.totalAmount}</td>
-                            <td>{order.status}</td>
-                            <td>Xóa</td>
                         </tr>
                     ))}
                 </tbody>
@@ -75,4 +65,4 @@ const Listdonhang = () => {
     );
 };
 
-export default Listdonhang
+export default Listdonhang;
