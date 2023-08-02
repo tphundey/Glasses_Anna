@@ -72,7 +72,7 @@ const ProductDetail = () => {
         } else {
           toast.error('Không thể thêm sản phẩm vào giỏ hàng. Số lượng vượt quá giới hạn (tối đa 5 sản phẩm).', {
             position: toast.POSITION.TOP_CENTER,
-            autoClose: 3000,
+            autoClose: 1000,
           });
         }
       } else {
@@ -80,18 +80,19 @@ const ProductDetail = () => {
         toast.success('Thêm thành công!', {
           className: 'thongbaothanhcong',
           position: toast.POSITION.TOP_CENTER,
-          autoClose: 3000,
+          autoClose: 1000,
         });
+
         setTimeout(() => {
           location.reload()
-        }, 3000);
+        }, 1000);
       }
     }
   };
   return (
     <div className="container">
       <div className="product_detail">
-        <div className="product_detail-top">Trang chủ - Sản phẩm</div>
+        <div className="product_detail-top">Trang chủ - Sản phẩm - {product.name}</div>
         <div className="product_detail-info">
           <div className="detail_info-left">
             <div className="img-primary">

@@ -124,3 +124,11 @@
 p {
     margin-bottom: 10px;
 }
+
+.removecart{
+    padding: 4px 10px;
+    background-color: brown;
+    color: white;
+    border: none;
+    margin-top: 5px
+}

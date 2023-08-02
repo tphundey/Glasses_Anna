@@ -14,9 +14,9 @@ const Sanpham = () => {
     const [filteredProducts, setFilteredProducts] = useState([]);
 
     const [priceOptions] = useState([
-        { id: 1, value: 1, label: "100.000đ" },
-        { id: 2, value: 2, label: "200.000đ" },
-        { id: 3, value: 3, label: "300.000đ" },
+        { id: 1, value: 1, label: "< 100.000" },
+        { id: 2, value: 2, label: "< 200.000" },
+        { id: 3, value: 3, label: "< 300.000" },
     ]);
 
     const [selectedPriceIds, setSelectedPriceIds] = useState([]);
@@ -24,7 +24,7 @@ const Sanpham = () => {
     useEffect(() => {
         setTimeout(() => {
             setIsLoadingDelay(false);
-        }, 2000);
+        }, 1000);
         dispatch(getProduct());
 
         axios.get('http://localhost:3000/categories')
