@@ -1,5 +1,5 @@
-import Aside from "../AsideAdmin/Aside";
-import Headeradmin from "../Headeradmin/Header";
+import Aside from "@/components/Admin/AsideAdmin/Aside"
+import Headeradmin from "@/components/Admin/Headeradmin/Header"
 import {Outlet} from "react-router-dom"
 
 const BaseLayoutadmin = () => {

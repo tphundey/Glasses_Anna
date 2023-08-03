@@ -2,7 +2,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import "./App.css";
 import { useState } from 'react';
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
-import BaseLayout from "./components/BaseLayout/BaseLayout";
+import BaseLayout from "./components/Layout/BaseLayoutUser/BaseLayout";
 import Home from "./components/TrangChu";
 import ProductDetail from "./components/ProductDetail/ProductDetail";
 import Sanpham from "./components/Sanpham";
@@ -10,7 +10,7 @@ import Thanhtoan from "./components/Thanhtoan";
 import Signup from "./components/Signup/Signup";
 import Signin from "./components/Signin/Signin";
 import Hoadon from "./components/HoaDon/Hoadon";
-import BaseLayoutadmin from "./components/Admin/BaseAdmin/BaseAdmin";
+import BaseLayoutadmin from "./components/Layout/BaseLayoutAdmin/BaseAdmin";
 import Listproduct from "./components/Admin/Listproduct/Listproduct";
 import Listdanhmuc from "./components/Admin/Listdanhmuc/Listdanhmuc";
 import Listuser from "./components/Admin/Listuser/Listuser";
@@ -41,6 +41,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        {/* router user */}
         <Route path="/" element={<BaseLayout />}>
           <Route index element={<Home />} />
           <Route path="/products">
@@ -58,16 +59,11 @@ function App() {
           <Route index element={<Listproduct />} />
           <Route path="addsanpham" element={<AddProductFormProps onAddProduct={handleAddProduct} />} />
           <Route path="suasanpham/:id" element={<SuaSanPham />} />
-          {/* <Route path="category" element={<Listdanhmuc />} />
-          <Route path="addCate" element={<AddCategory onAddCategory={handleAddCate}/>}/>
-          <Route path="updateCate/:id" element={<UpdateCategory/>} /> */}
-
           <Route path="category">
             <Route index element={<Listdanhmuc />} />
             <Route path="addCate" element={<AddCategory onAddCategory={handleAddCate} />} />
             <Route path="updateCate/:id" element={<UpdateCategory />} />
           </Route>
-
           <Route path="user" element={<Listuser />} />
           <Route path="donhang" element={<Listdonhang />} />
         </Route>
