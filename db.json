@@ -128,6 +128,66 @@
       "quantity": "2",
       "info": "test",
       "id": 2
+    },
+    {
+      "name": "Kínhsố3",
+      "price": 300,
+      "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4017-1-300x300.jpg",
+      "categoriesId": 2,
+      "color": "red",
+      "quantity": "2",
+      "info": "test",
+      "id": 3
+    },
+    {
+      "name": "Kínhsố4",
+      "price": 400,
+      "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4017-1-300x300.jpg",
+      "categoriesId": 2,
+      "color": "red",
+      "quantity": "2",
+      "info": "test",
+      "id": 4
+    },
+    {
+      "name": "Kínhsố5",
+      "price": 500,
+      "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4017-1-300x300.jpg",
+      "categoriesId": 2,
+      "color": "red",
+      "quantity": "2",
+      "info": "test",
+      "id": 5
+    },
+    {
+      "name": "Kínhsố6",
+      "price": 600,
+      "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4017-1-300x300.jpg",
+      "categoriesId": 2,
+      "color": "red",
+      "quantity": "2",
+      "info": "test",
+      "id": 6
+    },
+    {
+      "name": "Kínhsố7",
+      "price": 700,
+      "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4017-1-300x300.jpg",
+      "categoriesId": 2,
+      "color": "red",
+      "quantity": "2",
+      "info": "test",
+      "id": 7
+    },
+    {
+      "name": "Kínhsố8",
+      "price": 800,
+      "img": "https://kinhmatanna.com/wp-content/uploads/2023/06/DSC_4017-1-300x300.jpg",
+      "categoriesId": 2,
+      "color": "red",
+      "quantity": "2",
+      "info": "test",
+      "id": 8
     }
   ]
 }

@@ -31,9 +31,12 @@
 }
 
 .wrapper_signin .signin_right .title_signin {
-    width: 80%;
+    width: 100%;
     text-align: center;
     margin-bottom: 10px;
+}
+.wrapper_signin .signin_right .title_signin h3{
+    font-size: 25px;
 }
 
 .form_login .controll label {

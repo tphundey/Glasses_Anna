@@ -108,7 +108,6 @@ const ProductDetail = () => {
                 <p>Chất liệu: Kim loại</p>
                 <p>Màu sắc: {product.color}</p>
                 <p>Thông tin: {product.info}</p>
-
               </div>
               <div className="ship">
                 Miễn phí giao hàng từ 500k ( vận chuyển 3 - 5 ngày )

@@ -29,7 +29,7 @@ interface AddProductFormProps {
 
 const AddProductForm: React.FC<AddProductFormProps> = () => {
   const dispatch = useAppDispatch();
-  const navigate = useNavigate(); // Hook để chuyển hướng
+  const navigate = useNavigate(); 
 
 
   const {
@@ -40,13 +40,10 @@ const AddProductForm: React.FC<AddProductFormProps> = () => {
   } = useForm<Product>({
     defaultValues: {}
   });
-  // State để lưu trữ dữ liệu chất liệu từ API
   const [materials, setMaterials] = useState<Material[]>([]);
 
-  // Hàm để lấy dữ liệu chất liệu từ API
   const fetchMaterials = async () => {
     try {
-      // Thay đổi URL này thành API endpoint của bạn để lấy dữ liệu chất liệu từ server
       const response = await fetch('http://localhost:3000/categories');
       const data = await response.json();
       setMaterials(data);
@@ -55,24 +52,19 @@ const AddProductForm: React.FC<AddProductFormProps> = () => {
     }
   };
 
-  // Sử dụng useEffect để gọi API và cập nhật dữ liệu chất liệu khi component mount
   useEffect(() => {
     fetchMaterials();
   }, []);
   const containsSpace = (value: string) => !/\s/.test(value);
   const onSubmit = (data: Product) => {
-    // Sử dụng action creator addProduct và gửi action để thêm sản phẩm vào Redux store
     dispatch(addProduct(data));
-    // formReset(); // Gọi formReset thay vì reset()
     formReset();
 
     toast.success('Thêm thành công!', {
       className: 'thongbaothanhcong',
       position: toast.POSITION.TOP_CENTER,
-      autoClose: 3000, // Thời gian tự động biến mất sau 3 giây
+      autoClose: 3000,
     });
-    // Load lại trang sau khi thêm thành công
-    // Đặt thời gian biến mất của thông báo trước khi tải lại trang
     setTimeout(() => {
       navigate('/admin')
     }, 3000);
