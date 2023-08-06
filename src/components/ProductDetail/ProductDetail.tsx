@@ -6,6 +6,7 @@ import { addToCart, updateCartItem } from "@/actions/cart";
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {  useNavigate } from "react-router-dom";
 
 interface Product {
   id: number;
@@ -17,22 +18,23 @@ interface Product {
 interface CartItem {
   product: Product;
   quantity: number;
-  userProfile: UserProfile; // Include the UserProfile in the cart item.
+  userProfile: any;
 }
 const ProductDetail = () => {
+
+  const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.cartItems);
   const dispatch = useDispatch();
   const [product, setProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
   const { id } = useParams<{ id: string }>();
   useEffect(() => {
-    // Gọi action để lấy sản phẩm theo ID khi component tải lên
     getProductById(id);
   }, [id]);
 
-  const getProductById = async (id) => {
+  const getProductById = async (id: any) => {
     try {
-      const response = await axios.get(`http://localhost:3000/products/${id}`); // Thay đổi đường dẫn tới API của bạn
+      const response = await axios.get(`http://localhost:3000/products/${id}`);
       setProduct(response.data);
     } catch (error) {
       console.error("Error fetching product:", error);
@@ -57,7 +59,6 @@ const ProductDetail = () => {
   const handleAddToCart = () => {
     const userProfile = JSON.parse(localStorage.getItem("profile") || "{}");
     if (!userProfile || Object.keys(userProfile).length === 0) {
-      // If user profile is not available, show alert and ask user to log in or sign up.
       alert("Vui lòng đăng nhập hoặc đăng ký để thêm sản phẩm vào giỏ hàng.");
       return;
     }
@@ -77,15 +78,14 @@ const ProductDetail = () => {
         }
       } else {
         dispatch(addToCart(cartItem));
-        toast.success('Thêm thành công!', {
+        toast.success('Thêm thành công chờ 3s để vào giỏ hàng!', {
           className: 'thongbaothanhcong',
           position: toast.POSITION.TOP_CENTER,
-          autoClose: 1000,
+          autoClose: 3000,
         });
-
         setTimeout(() => {
-          location.reload()
-        }, 1000);
+          navigate("/thanhtoan");
+        }, 3000);
       }
     }
   };
