@@ -6,6 +6,7 @@ import './add.css';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaSpinner } from 'react-icons/fa';
 
 interface Product {
   id: number;
@@ -28,10 +29,11 @@ interface AddProductFormProps {
 }
 
 const AddProductForm: React.FC<AddProductFormProps> = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useAppDispatch();
-  const navigate = useNavigate(); 
-
-
+  const navigate = useNavigate();
+  const [materials, setMaterials] = useState<Material[]>([]);
+  const containsSpace = (value: string) => !/\s/.test(value);
   const {
     control,
     handleSubmit,
@@ -40,7 +42,6 @@ const AddProductForm: React.FC<AddProductFormProps> = () => {
   } = useForm<Product>({
     defaultValues: {}
   });
-  const [materials, setMaterials] = useState<Material[]>([]);
 
   const fetchMaterials = async () => {
     try {
@@ -51,25 +52,40 @@ const AddProductForm: React.FC<AddProductFormProps> = () => {
       console.error('Error fetching materials:', error);
     }
   };
-
   useEffect(() => {
     fetchMaterials();
   }, []);
-  const containsSpace = (value: string) => !/\s/.test(value);
-  const onSubmit = (data: Product) => {
-    dispatch(addProduct(data));
-    formReset();
 
-    toast.success('Thêm thành công!', {
-      className: 'thongbaothanhcong',
-      position: toast.POSITION.TOP_CENTER,
-      autoClose: 3000,
-    });
-    setTimeout(() => {
-      navigate('/admin')
-    }, 3000);
+  const onSubmit = async (data: Product) => {
+    setIsLoading(true);
+
+    try {
+      await dispatch(addProduct(data));
+      formReset();
+
+      toast.success('Thêm thành công!', {
+        className: 'thongbaothanhcong',
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000,
+      });
+
+      setTimeout(() => {
+        navigate('/admin')
+      }, 3000);
+
+    } catch (error) {
+      console.error('Error adding product:', error);
+      toast.error('Đã xảy ra lỗi khi thêm sản phẩm. Vui lòng thử lại!', {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 3000,
+      });
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
+    }
+
   };
-
   return (
     <div className="formadd">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -93,8 +109,7 @@ const AddProductForm: React.FC<AddProductFormProps> = () => {
         </div>
         <div>
           <label>
-            Giá thành:
-            <Controller
+            Giá thành:<Controller
               name="price"
               control={control}
               rules={{ required: 'Không được để trống dữ liệu', min: { value: 0, message: 'Price must be greater than 0' } }}
@@ -173,8 +188,7 @@ const AddProductForm: React.FC<AddProductFormProps> = () => {
               render={({ field }) => <input type="number" {...field} />}
             />
 
-          </label>
-          {errors.quantity && <div className="error">{errors.quantity.message}</div>}
+          </label>{errors.quantity && <div className="error">{errors.quantity.message}</div>}
         </div>
         <div>
           <label>
@@ -193,7 +207,9 @@ const AddProductForm: React.FC<AddProductFormProps> = () => {
           </label>
           {errors.info && <div className="error">{errors.info.message}</div>}
         </div>
-        <button type="submit">Add Product</button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? <FaSpinner className="icon-spin" /> : 'Add Product'}
+        </button>
 
       </form>
       {/* Component ToastContainer để hiển thị thông báo */}
