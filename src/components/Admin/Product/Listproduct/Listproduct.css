@@ -1,7 +1,7 @@
 .listproduct {
     width: 80%;
     float: right;
-    padding: 0px;
+    padding: 20px;
     margin: 0px auto;
 }
 
@@ -26,6 +26,7 @@
 
 .listproduct td {
     padding: 20px;
+    font-size: 14px;
 }
 
 .listproduct tbody {
@@ -46,8 +47,17 @@
 
 }
 
+.listproduct .chucnang2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 25px;
+
+}
+
+
 .sua {
-    background-color: cornflowerblue;
+    background-color: rgb(32, 132, 239);
     padding: 10px 10px;
     border: none;
     border-radius: 5px;
@@ -56,7 +66,7 @@
 }
 
 .xoa {
-    background-color: rgb(154, 16, 16);
+    background-color: rgb(230, 39, 39);
     padding: 11px 12px;
     border: none;
     border-radius: 5px;
@@ -69,5 +79,7 @@
     color: darkslategray;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
-    padding: 20px;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: thistle;
 }

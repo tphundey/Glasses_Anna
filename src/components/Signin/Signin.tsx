@@ -12,7 +12,7 @@ const Signin = () => {
 
   const navigate = useNavigate();
   const onSuccess = (res: any) => {
-
+    const emailToCheck = "anhnek033@gmail.com";
     const profile = {
       email: res.profileObj.email,
       name: res.profileObj.name,
@@ -25,11 +25,21 @@ const Signin = () => {
     localStorage.setItem('isLoggedIn', 'true');
     localStorage.setItem('profile', profileJSON);
 
-    // Gửi dữ liệu profile lên API bằng Axios
-    axios.post('http://localhost:3000/googleAccount', profile)
+
+    // Kiểm tra email trùng trước khi gửi yêu cầu POST
+    axios.get(`http://localhost:3000/googleAccount?email=${res.profileObj.email}`)
       .then(response => {
-        console.log('Post thông tin tài khoản thành công !');
-        // Xử lý phản hồi từ API nếu cần thiết
+        if (response.data.length > 0) {
+          console.log('có tài khoản rồi');
+        } else {
+          axios.post('http://localhost:3000/googleAccount', profile)
+            .then(response => {
+              console.log('Post thông tin tài khoản thành công !');
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        }
       })
       .catch(error => {
         console.log(error);
@@ -38,14 +48,19 @@ const Signin = () => {
     toast.success('Đăng nhập thành công!', {
       className: 'thongbaothanhcong',
       position: toast.POSITION.TOP_CENTER,
-      autoClose: 2000, // Thời gian tự động biến mất sau 3 giây
+      autoClose: 2000,
     });
 
-    setTimeout(() => {
-      navigate('/')
-      location.reload()
-    }, 3000);
-
+    if (res.profileObj.email === emailToCheck) {
+      setTimeout(() => {
+        navigate('/admin');
+      }, 3000);
+    } else {
+      setTimeout(() => {
+        navigate('/');
+        location.reload();
+      }, 3000);
+    }
   }
 
   const onFailure = (res: any) => {

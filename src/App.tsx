@@ -19,6 +19,7 @@ import AddProductFormProps from "./components/Admin/Product/Addsanpham/Addsanpha
 import SuaSanPham from "./components/Admin/Product/Updatesanpham/Updatesanpham";
 import AddCategory from "./components/Admin/Category/Adddanhmuc/Adddanhmuc";
 import UpdateCategory from "./components/Admin/Category/UpdateCategory/UpdateCategory";
+
 interface Product {
   id: number;
   name: string;
@@ -67,8 +68,6 @@ function App() {
           <Route path="user" element={<Listuser />} />
           <Route path="donhang" element={<Listdonhang />} />
         </Route>
-
-
       </Routes>
     </Router>
   );

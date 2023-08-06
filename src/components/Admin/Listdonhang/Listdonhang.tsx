@@ -22,16 +22,13 @@ const Listdonhang = () => {
                 <thead>
                     <tr>
                         <th>Mã đơn hàng</th>
-                        <th>Tên khách hàng</th>
-
+                        <th>Tên</th>
                         <th>Số điện thoại</th>
                         <th>Thành phố</th>
-
                         <th>Địa chỉ</th>
-
-                        <th>Phương thức thanh toán</th>
-                        <th>Tổng giá trị đơn hàng</th>
-                        <th>Thông tin sản phẩm</th>
+                        <th>Phương thức</th>
+                        <th>Tổng giá trị</th>
+                        <th>Thông tin</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,21 +36,18 @@ const Listdonhang = () => {
                         <tr key={order.id}>
                             <td>{order.id}</td>
                             <td>{order.name}</td>
-
                             <td>{order.phone}</td>
                             <td>{order.city}</td>
-
                             <td>{order.address}</td>
-
                             <td>{order.paymentMethod}</td>
-                            <td>{order.totalPrice}</td>
+                            <td>{order.totalPrice}.000đ</td>
                             <td>
                                 <ul>
                                     {order.cartItems.map((item) => (
-                                        <li key={item.id}>
-                                            <p>Tên sản phẩm: {item.product.name}</p>
-                                            <p>Số lượng: {item.quantity}</p>
-                                        </li>
+                                        <div key={item.id}>
+                                            <p>{item.quantity} cái {item.product.name} </p>
+                                            
+                                        </div>
                                     ))}
                                 </ul>
                             </td>

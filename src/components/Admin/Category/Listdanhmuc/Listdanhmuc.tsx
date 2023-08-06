@@ -28,7 +28,7 @@ const Listdanhmuc = () => {
                         <tr key={category.id}>
                             <td>{category.id}</td>
                             <td>{category.name}</td>
-                            <td className='chucnang'>
+                            <td className='chucnang2'>
                                 <div className="">
                                     <Link to={`/admin/category/updateCate/${category.id}`} className='sua'>Sửa</Link>
                                 </div>
